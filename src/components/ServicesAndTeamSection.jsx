@@ -1,5 +1,5 @@
 import { ArrowUpRight, CheckCircle2, MessageCircle, Phone, Shield, Star, Users, Award, Mountain } from 'lucide-react';
-import { BUSINESS_INFO, SERVICES_LIST, TESTIMONIALS, buildWhatsAppUrl } from '../data/travelData';
+import { BUSINESS_INFO, SERVICES_LIST, TESTIMONIALS, buildWhatsAppUrl, getImageUrl } from '../data/travelData';
 
 export default function ServicesAndTeamSection({ onBookNow }) {
   return (
@@ -12,8 +12,12 @@ export default function ServicesAndTeamSection({ onBookNow }) {
             <div className="lg:col-span-5">
               <div className="relative overflow-hidden rounded-[2rem] shadow-lg">
                 <img
-                  src="/images/rishikesh-nainital.jpg"
+                  src={getImageUrl('images/rishikesh-nainital.jpg')}
                   alt="Emerald lakefront resort in Nainital and Rishikesh by HimYatra"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = getImageUrl('images/rishikesh-nainital.jpg');
+                  }}
                   className="h-[380px] sm:h-[460px] w-full object-cover"
                 />
                 <div className="glass-card-overlay absolute inset-x-4 bottom-4 rounded-2xl p-5 text-white border border-white/15">
@@ -141,8 +145,12 @@ export default function ServicesAndTeamSection({ onBookNow }) {
           <div className="lg:col-span-6 order-1 lg:order-2">
             <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
               <img
-                src="/images/team-himachal.jpg"
+                src={getImageUrl('images/team-himachal.jpg')}
                 alt="HimYatra Tour Planners in Manali"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = getImageUrl('images/team-himachal.jpg');
+                }}
                 className="h-[340px] sm:h-[440px] w-full object-cover"
               />
               <div className="absolute left-4 bottom-4 right-4 flex items-center justify-between rounded-2xl bg-white/95 p-4 shadow-md">

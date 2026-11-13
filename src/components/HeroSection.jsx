@@ -2,7 +2,7 @@ import { ArrowUpRight, MapPin, Phone, Sparkles, Compass } from 'lucide-react';
 import Navbar from './Navbar';
 import VueIsland from './VueIsland';
 import BookingSearchWidget from '../vue/BookingSearchWidget.vue';
-import { BUSINESS_INFO } from '../data/travelData';
+import { BUSINESS_INFO, getImageUrl } from '../data/travelData';
 
 export default function HeroSection({ currency, onBookNow, onSearchComplete }) {
   return (
@@ -11,8 +11,12 @@ export default function HeroSection({ currency, onBookNow, onSearchComplete }) {
       <div className="relative overflow-hidden bg-[#CBE5EE] pb-32 sm:pb-40 lg:pb-44">
         {/* Background Image positioned like Hotello reference */}
         <img
-          src="/images/himachal-hero.jpg"
+          src={getImageUrl('images/himachal-hero.jpg')}
           alt="Himalayan luxury timber and glass mountain resort in Himachal Pradesh"
+          onError={(e) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = getImageUrl('images/himachal-hero.jpg');
+          }}
           className="absolute inset-0 h-full w-full object-cover object-center lg:object-right opacity-95"
         />
         {/* Left-to-right sky-blue gradient ensuring crisp dark typography legibility */}

@@ -11,6 +11,17 @@ export const BUSINESS_INFO = {
   hours: 'Mon – Sun • 8:00 AM – 10:00 PM IST',
 };
 
+export const BASE_URL = (import.meta.env.BASE_URL || '/').endsWith('/')
+  ? (import.meta.env.BASE_URL || '/')
+  : `${import.meta.env.BASE_URL}/`;
+
+export function getImageUrl(path) {
+  if (!path) return '';
+  if (path.startsWith('http')) return path;
+  const clean = path.startsWith('/') ? path.slice(1) : path;
+  return `${BASE_URL}${clean}`;
+}
+
 export const CURRENCIES = {
   INR: { code: 'INR', symbol: '₹', rate: 1 },
   USD: { code: 'USD', symbol: '$', rate: 0.012 },
@@ -46,7 +57,7 @@ export const ALL_PACKAGES = [
     badge: 'Bestseller • Himachal',
     bestTime: 'Oct – Jun',
     pickupHubs: 'Delhi / Chandigarh',
-    image: '/images/manali-retreat.jpg',
+    image: getImageUrl('images/manali-retreat.jpg'),
     highlights: ['Atal Tunnel & Sissu', 'Boutique Cedar Resort', 'Private Cab / Volvo', 'Breakfast & Dinner'],
     description:
       'Stay in sunlit cedar-wood chalets overlooking Manali’s snow-clad peaks with guided drives through Solang Valley, Atal Tunnel, and Old Manali cafes.',
@@ -67,7 +78,7 @@ export const ALL_PACKAGES = [
     badge: 'High-Altitude • Himachal',
     bestTime: 'May – Oct',
     pickupHubs: 'Shimla / Manali / Chandigarh',
-    image: '/images/spiti-shimla.jpg',
+    image: getImageUrl('images/spiti-shimla.jpg'),
     highlights: ['Key & Tabo Monasteries', 'Chandratal Lake Camp', '4x4 Mountain SUV', 'Oxygen & Permits'],
     description:
       'Traverse dramatic Himalayan passes from Shimla through Kinnaur and Kaza to turquoise Chandratal Lake with experienced Himachali road captains.',
@@ -88,7 +99,7 @@ export const ALL_PACKAGES = [
     badge: 'Top Rated • Uttarakhand',
     bestTime: 'Year-Round',
     pickupHubs: 'Delhi / Haridwar / Dehradun',
-    image: '/images/rishikesh-nainital.jpg',
+    image: getImageUrl('images/rishikesh-nainital.jpg'),
     highlights: ['Ganga Aarti & Rafting', 'Naini Lake Boating', 'Hilltop Boutique Stay', 'AC Innova Crysta'],
     description:
       'Blend sacred Ganga evenings in Rishikesh with misty cedar trails in Mussoorie and emerald lakefront mornings across Nainital and Bhimtal.',
@@ -109,7 +120,7 @@ export const ALL_PACKAGES = [
     badge: 'Alpine Escape • Uttarakhand',
     bestTime: 'Dec – Jun & Sep – Nov',
     pickupHubs: 'Delhi / Rishikesh / Dehradun',
-    image: '/images/kedarnath-chopta.jpg',
+    image: getImageUrl('images/kedarnath-chopta.jpg'),
     highlights: ['Auli Ropeway & Skiing', 'Tungnath & Chandrashila', 'Swiss Alpine Glamping', 'All Meals Included'],
     description:
       'Wake up inside cozy Himalayan glamping domes facing Nanda Devi peak, hike to the world’s highest Shiva temple at Tungnath, and ride the Auli cable car.',
@@ -130,7 +141,7 @@ export const ALL_PACKAGES = [
     badge: 'Family Favorite • Himachal',
     bestTime: 'Year-Round',
     pickupHubs: 'Delhi / Kalka / Chandigarh',
-    image: '/images/himachal-hero.jpg',
+    image: getImageUrl('images/himachal-hero.jpg'),
     highlights: ['Pine-View Luxury Chalet', 'Kalka–Shimla Toy Train', 'Kufri & Naldehra Tour', 'Bonfire Evening'],
     description:
       'Classic colonial charm meets serene Mashobra pine forests—ideal for families, senior citizens, and relaxed weekend escapes from Delhi NCR.',
@@ -151,7 +162,7 @@ export const ALL_PACKAGES = [
     badge: 'Youth & Groups • Himachal',
     bestTime: 'Mar – Jun & Sep – Dec',
     pickupHubs: 'Delhi / Chandigarh',
-    image: '/images/spiti-shimla.jpg',
+    image: getImageUrl('images/spiti-shimla.jpg'),
     highlights: ['Tandem Paragliding (GoPro)', 'Parvati Riverside Stay', 'Chalal & Tosh Walk', 'Semi-Sleeper Volvo'],
     description:
       'Soar over Kangra’s lush valley at Asia’s premier paragliding site in Bir Billing and unwind by the gushing Parvati River in Kasol.',
@@ -172,7 +183,7 @@ export const ALL_PACKAGES = [
     badge: 'Verified Yatra • Uttarakhand',
     bestTime: 'May – Jun & Sep – Nov',
     pickupHubs: 'Haridwar / Rishikesh / Dehradun',
-    image: '/images/kedarnath-chopta.jpg',
+    image: getImageUrl('images/kedarnath-chopta.jpg'),
     highlights: ['Yatra Registration Included', 'VIP Temple Assistance', 'Heated Deluxe Hotels', 'Dedicated Innova/Tempo'],
     description:
       'Thoughtfully paced spiritual pilgrimage with comfortable stays, senior-friendly pacing, heli-pad assistance, and local Uttarakhand guides.',
@@ -193,7 +204,7 @@ export const ALL_PACKAGES = [
     badge: 'Wildlife & Lakes • Uttarakhand',
     bestTime: 'Oct – Jun',
     pickupHubs: 'Delhi / Kathgodam',
-    image: '/images/rishikesh-nainital.jpg',
+    image: getImageUrl('images/rishikesh-nainital.jpg'),
     highlights: ['Dhikala / Bijrani Jeep Safari', 'Lakefront Resort Room', 'Naini Peak Cable Car', 'Private Cab'],
     description:
       'Spot Royal Bengal tigers on dawn jeep safaris in Jim Corbett before retreating to cool lakeside resorts in Nainital and Naukuchiatal.',

@@ -13,6 +13,10 @@ function PackageBentoCard({ item, currency, tall = false, onSelect }) {
       <img
         src={item.image}
         alt={item.name}
+        onError={(e) => {
+          e.currentTarget.onerror = null;
+          e.currentTarget.src = `${import.meta.env.BASE_URL}images/himachal-hero.jpg`;
+        }}
         decoding="async"
         className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
       />
@@ -233,6 +237,10 @@ export default function TopHotelsSection({ travelState, onSelectPackage }) {
             <img
               src={displayList[3].image}
               alt={displayList[3].name}
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = `${import.meta.env.BASE_URL}images/himachal-hero.jpg`;
+              }}
               className="h-20 w-28 rounded-2xl object-cover shrink-0"
             />
             <div>
